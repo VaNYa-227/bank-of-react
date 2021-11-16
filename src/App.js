@@ -20,6 +20,7 @@ class App extends Component {
         userName: 'joe_shmo',
         memberSince: '07/23/96',
       },
+      //Arrays
       credits: [],
       debits: []
     }
@@ -32,6 +33,7 @@ class App extends Component {
     this.componentDidMount()
   }
 
+  //Add to array credit.
   addCredit = (e) =>{
 
     let newCredits = [...this.state.credits]
@@ -54,6 +56,7 @@ class App extends Component {
 
   }
 
+  //Add to array debit.
   addDebit = (e) =>{
 
     let newDebits = [...this.state.debits]
@@ -75,8 +78,9 @@ class App extends Component {
     
   }
 
+  //Async implementation
   async componentDidMount(){
-
+    //API endpoints
     let credits = await axios.get("https://moj-api.herokuapp.com/credits")
     let debits = await axios.get("https://moj-api.herokuapp.com/debits")
 
@@ -95,6 +99,7 @@ class App extends Component {
 
   }
 
+//Render components
   render() {
 
     const {credits} = this.state;

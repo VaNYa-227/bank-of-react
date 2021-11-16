@@ -50,7 +50,8 @@ class CreditsComponent extends Component {
 
         this.props.addCredit(this.state.credit);
     }
-
+    
+//Navigation buttons/links
     render(){
 
         return (
@@ -68,7 +69,7 @@ class CreditsComponent extends Component {
                 <Link to="/LogIn">Log In</Link>
                 <h1></h1>
 
-                <Link to="Credits">Credits</Link>
+                <Link to="/Debits">Debits</Link>
                 <h1></h1>
 
                 <Link to="/">Return to Home</Link>

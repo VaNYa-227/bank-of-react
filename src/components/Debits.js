@@ -52,6 +52,7 @@ class DebitsComponent extends Component {
         this.props.addDebit(this.state.debit);
     }
 
+//Navigation buttons/links
     render(){
 
         return (

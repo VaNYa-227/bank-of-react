@@ -29,6 +29,7 @@ class App extends Component {
     const newUser = {...this.state.currentUser}
     newUser.userName = logInInfo.userName
     this.setState({currentUser: newUser})
+    this.componentDidMount()
   }
 
   addCredit = (e) =>{
@@ -45,8 +46,11 @@ class App extends Component {
     };
 
     newCredits.push(addThis);
+
+    let sumAmount = Number(this.state.accountBalance) + Number(e.amount);
     
     this.setState({credits: newCredits})
+    this.setState({accountBalance: sumAmount})
 
   }
 
@@ -64,8 +68,10 @@ class App extends Component {
     };
 
     newDebits.push(addThis);
+    let sumAmount =  Number(this.state.accountBalance) - Number(e.amount);
     
     this.setState({debits: newDebits})
+    this.setState({accountBalance: sumAmount})
     
   }
 
@@ -96,12 +102,12 @@ class App extends Component {
 
     const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
     const UserProfileComponent = () => (
-        <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}  />
+        <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} accountBalance={this.state.accountBalance}/>
     );
 
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits}/>)
-    const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits}/>)
+    const CreditsComponent = () => (<Credits addCredit={this.addCredit} credits={credits} accountBalance={this.state.accountBalance}/>)
+    const DebitsComponent = () => (<Debits addDebit={this.addDebit} debits={debits} accountBalance={this.state.accountBalance}/>)
 
     return (
         <Router>

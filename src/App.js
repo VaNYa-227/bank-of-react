@@ -15,7 +15,7 @@ class App extends Component {
     super();
 
     this.state = {
-      accountBalance: 14568.27,
+      accountBalance: 0,
       currentUser: {
         userName: 'joe_shmo',
         memberSince: '07/23/96',

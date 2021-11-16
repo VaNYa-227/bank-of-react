@@ -31,6 +31,44 @@ class App extends Component {
     this.setState({currentUser: newUser})
   }
 
+  addCredit = (e) =>{
+
+    let newCredits = [...this.state.credits]
+
+    let addThis = {
+
+      'id': e.id,
+      'amount': e.amount,
+      'date': e.date,
+      'description': e.description
+
+    };
+
+    newCredits.push(addThis);
+    
+    this.setState({credits: newCredits})
+
+  }
+
+  addDebit = (e) =>{
+
+    let newDebits = [...this.state.debits]
+
+    let addThis = {
+
+      'id': e.id,
+      'amount': e.amount,
+      'date': e.date,
+      'description': e.description
+
+    };
+
+    newDebits.push(addThis);
+    
+    this.setState({debits: newDebits})
+    
+  }
+
   async componentDidMount(){
 
     let credits = await axios.get("https://moj-api.herokuapp.com/credits")
